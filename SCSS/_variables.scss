@@ -1,0 +1,102 @@
+
+$redes:(
+    facebook:blue,
+    twitter: red,
+    tiktok: black,
+    whatssap: green
+);
+
+$color1: lightblue;
+$ancho: 720px;
+$blue: #4285F4;
+$green: #33D374;
+
+$vista: bodyColor2;
+
+$tamaño1: 30px;
+$tamaño2: 300px;
+$tamaño3: 50px;
+$tamaño4: 20px;
+$tamaño5: 100px;
+$tamaño6: 25px;
+$tamaño7: 600px;
+
+/*mixin*/
+
+@mixin size ($horizontal, $vertical) {
+
+  width: $horizontal;
+  height: $vertical;
+}
+
+
+.videoChina1 .china1 .videoChina2 .china2 {
+
+  @include size (20px, 40px);
+
+}
+
+
+/*bucle*/
+
+
+@for $i from 1 through 5{
+  .img-#{$i}{
+      width: 100px * $i;
+      height: 50px * $i;
+  }
+}
+
+
+/*map get*/
+
+$colors:(
+ twitter: #74ee55,
+ facebook:  #953a8d,
+ send-mail: #ec540e
+);
+
+@each $name-color, $bgcolor in $colors {
+  .btn--#{$name-color} {
+      background-color: $bgcolor;
+  }
+}
+
+
+
+
+/*EXTEND*/  
+
+%boton {
+
+  color: black;
+  text-align: center;
+  border-radius: 20px;
+
+}
+
+.boton--aceptar {
+
+  @extend %boton;
+  background-color: green;
+}
+
+.botton--cancelar {
+
+  @extend %boton;
+  background-color: red;
+
+
+}
+
+@mixin sizes($width, $height) {
+
+  height: $height;
+  width: $width;
+}
+
+.tituloUltimosproyectos {
+
+@include sizes( 500px, 50px )
+
+}
